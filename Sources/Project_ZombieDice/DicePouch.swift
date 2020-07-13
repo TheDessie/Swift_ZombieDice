@@ -10,7 +10,7 @@ class DicePouch {
         Array(repeating: YellowDie(), count: 4)
     }
 
-    mutating func drawADie() -> Die? {
+    mutating func drawADie() -> Die {
 
         if (dice.isEmpty) {
             return nil

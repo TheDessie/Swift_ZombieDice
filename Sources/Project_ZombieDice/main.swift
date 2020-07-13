@@ -1,3 +1,4 @@
 import Foundation
-print("Hello, world!")
-print("Test Commit")
+
+var game: Game = Game()
+game.start()
