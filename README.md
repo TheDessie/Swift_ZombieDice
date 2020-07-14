@@ -52,5 +52,5 @@ Now that you are familiar with the dice and what they mean, lets get to the rule
 ## Instructions
 1. Enter the number of players. They should be between 2 and 8.
 2. Enter the name of each player.
-4. After the game ends, enter whether you want to play again or not.
+3. After each turn you should enter if you want to roll again.
 
