@@ -22,25 +22,33 @@ class Game {
 
         outerLoop: while(!end) {
 
+            countSteps = 3
+
             while(haveSteps) {
 
                 for i in diceInHand {
-
-                    side = i.rollDie()
-                    print("You rolled \(i.colour) die with \(side)")
-
-                    if (side == "🧠") {
-                        score += 1
-                    }
-
-                    else if (side == "💥") {
-                        lives -= 1
-                    } 
                     
-                    else if (side == "👣") {
-                        countSteps += 1
-                    }
+                    if (i.rollAgain) {
+                        
+                        side = i.rollDie()
+                        print("You rolled \(i.colour) die with \(side)")
 
+                        if (side == "🧠") {
+                            score += 1
+                            i.rollAgain = false
+                            countSteps -= 1
+                        }
+
+                        else if (side == "💥") {
+                            lives -= 1
+                            i.rollAgain = false
+                            countSteps -= 1
+                        } 
+                        
+                        else if (side == "👣") {
+                            i.rollAgain = true
+                        }
+                    }
                 }
 
                 if (countSteps == 0) {
