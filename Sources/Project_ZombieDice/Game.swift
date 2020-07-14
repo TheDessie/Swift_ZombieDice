@@ -53,7 +53,6 @@ class Game {
 
                 if (countSteps == 0) {
                     haveSteps = false;
-                    
                 }
 
                 if (lives < 1) {
@@ -62,20 +61,47 @@ class Game {
                     break outerLoop;
                 }
             }
-
             print("Wanna throw again? y/n")
             if (readLine() == "n") {
                 end = true
             }
-            
         }
-
         player.score += score
-
     }
 
     mutating func start() {
-        
-    }
 
+        var isGameWon = false
+
+        while(true) {
+
+            print("Enter number of players (2-8)")
+            var playersCount: Int = Int(readLine())
+            if (playersCount >= 2 && playersCount <= 8) {
+                break;
+            }
+            print("Invalid number of players!")
+            
+        }
+
+        for i in 1...playersCount {
+            print("Enter the name of player \(i):")
+            let currentPlayer: Player = Player(name: readLine()!)
+            players.append(currentPlayer)
+        }
+
+        while(!isGameWon) {
+
+            for i in players {
+
+                print("\(i.name)'s turn!")
+                beginTurn(player: i)
+                if (i.score >= 13) {
+                    print("\(i.name) won the game!")
+                    isGameWon = true
+                    break
+                }
+            }
+        }  
+    }
 }
